@@ -15,7 +15,9 @@
 
 **MemU** is an open-source memory framework for AI companions—high accuracy, fast retrieval, low cost. It acts as an intelligent "memory folder" that adapts to different AI companion scenarios.
 
-With **memU**, you can build AI companions that truly remember you. They learn who you are, what you care about, and grow alongside you through every interaction.
+ With **memU**, you can build AI companions that truly remember you. They learn who you are, what you care about, and grow alongside you through every interaction. 
+
+ Visit our homepage: [memu.pro](https://memu.pro/)
 
 ### 🥇 92% Accuracy - 💰 90% Cost Reduction - 🤖 AI Companion Specialized
 - ✅ **AI Companion Specialization** - Adapt to AI companions application
