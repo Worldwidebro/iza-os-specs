@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "memu-py"
-version = "0.1.6"
+version = "0.1.7"
 authors = [
-    {name = "MemU Team", email = "support@memu.ai"},
+    {name = "MemU Team", email = "contact@nevamind.ai"},
 ]
 description = "AI Memory and Conversation Management Framework - Simple as mem0, Powerful as MemU"
 readme = "README.md"
@@ -98,6 +98,9 @@ include = ["memu*"]
 line-length = 88
 target-version = ['py39']
 include = '\.pyi?$'
+
+[tool.setuptools]
+license-files = []
 
 [tool.mypy]
 python_version = "3.9"

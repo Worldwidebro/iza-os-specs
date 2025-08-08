@@ -206,7 +206,7 @@ We're currently focusing on:
 
 **Reporting Security Issues:**
 - **DO NOT** create public issues for security vulnerabilities
-- Email security issues privately to [security@nevamind.ai](mailto:security@nevamind.ai)
+- Email security issues privately to [contact@nevamind.ai](mailto:contact@nevamind.ai)
 - Include detailed reproduction steps and impact assessment
 - We'll acknowledge receipt within 24 hours
 
