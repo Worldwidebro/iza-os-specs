@@ -70,7 +70,7 @@ from memu import MemuClient
 ```python
 # Initialize
 memu_client = MemuClient(
-    base_url="https://api-preview.memu.so", 
+    base_url="https://api.memu.so", 
     api_key=os.getenv("MEMU_API_KEY")
 )
 memu_client.memorize_conversation(
