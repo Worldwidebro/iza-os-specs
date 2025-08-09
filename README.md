@@ -108,7 +108,7 @@ For users and developers who prefer local control, data privacy, or customizatio
 
 🚀 **Simple Demo Available** - Check out [`example/local/`](example/local/) for local implementation examples
 
-🔧 **Self-Host Backend** - Coming soon! Star us and keep updated
+🔧 **Self-Host Backend** - Coming next week! Star us and keep updated
 
 ---
 
