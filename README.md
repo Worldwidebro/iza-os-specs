@@ -115,6 +115,18 @@ For users and developers who prefer local control, data privacy, or customizatio
 
 ## ✨ Key Features
 
+### 🎥 Demo Video
+
+<div align="left">
+  <a href="https://youtu.be/ueOe4ZPlZLU">
+    <img src="https://img.youtube.com/vi/ueOe4ZPlZLU/maxresdefault.jpg" alt="MemU Demo Video" width="600">
+  </a>
+  <br>
+  <em>Click to watch the MemU demonstration video</em>
+</div>
+
+---
+
 ### Memory as file system
 
 #### **Organize** - Autonomous Memory File Management
