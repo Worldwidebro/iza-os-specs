@@ -81,6 +81,7 @@ memu_client.memorize_conversation(
     agent_name="Assistant"
 )
 ```
+Check [API reference](docs/API_REFERENCE.md) or [our blog](https://memu.pro/blog) for more details. 
 
 📖 **See [`example/client/memory.py`](example/client/memory.py) for complete integration details**
 
