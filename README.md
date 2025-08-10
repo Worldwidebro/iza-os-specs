@@ -157,7 +157,7 @@ We categorize important information into documents, and during retrieval, we onl
 
 ### Low cost
 
-We can process hundreds of conversation turns at once, eliminating the need for developers to repeatedly call memory functions, thus saving users from wasting tokens on multiple memory operations. See [best practice]().
+We can process hundreds of conversation turns at once, eliminating the need for developers to repeatedly call memory functions, thus saving users from wasting tokens on multiple memory operations. See [best practice](https://memu.pro/blog/memu-best-practice).
 
 ---
 ## 🎓 **Use Cases**
