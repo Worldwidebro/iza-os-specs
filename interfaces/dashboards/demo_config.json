@@ -1,0 +1,8 @@
+{
+  "presentation_mode": "maximum_impact",
+  "response_formatting": "rich_terminal",
+  "streaming_enabled": true,
+  "metrics_display": true,
+  "ai_capability_highlighting": true,
+  "customer_context_adaptation": true
+}

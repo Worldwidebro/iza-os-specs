@@ -1,0 +1,42 @@
+{
+  "instant_app_generation": {
+    "description": "Generate complete React app with AI suggestions",
+    "command": "iza demo-app 'todo app with AI task suggestions'",
+    "expected_time": "15-30 seconds",
+    "wow_factors": [
+      "Natural language understanding",
+      "Complete code generation",
+      "Instant deployment"
+    ]
+  },
+  "intelligent_data_analysis": {
+    "description": "Analyze business data with AI insights",
+    "command": "iza demo-analysis 'predict customer churn from sales data'",
+    "expected_time": "10-20 seconds",
+    "wow_factors": [
+      "Pattern recognition",
+      "Predictive insights",
+      "Strategic recommendations"
+    ]
+  },
+  "autonomous_agent_deployment": {
+    "description": "Deploy intelligent monitoring agent",
+    "command": "iza demo-agent 'monitor website performance and alert on issues'",
+    "expected_time": "20-40 seconds",
+    "wow_factors": [
+      "Autonomous operation",
+      "Intelligent monitoring",
+      "Adaptive responses"
+    ]
+  },
+  "memory_enhanced_recall": {
+    "description": "Demonstrate memory system intelligence",
+    "command": "iza recall 'authentication implementation patterns'",
+    "expected_time": "2-5 seconds",
+    "wow_factors": [
+      "Instant recall",
+      "Context understanding",
+      "Pattern matching"
+    ]
+  }
+}

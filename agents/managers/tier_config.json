@@ -1,0 +1,7 @@
+{
+  "tier_name": "managers",
+  "description": "Orchestrators that break down goals and manage workers",
+  "agent_count": 0,
+  "status": "ready",
+  "deployment_rules": "Deploy for complex multi-step operations"
+}

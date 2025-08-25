@@ -1,0 +1,114 @@
+[
+  {
+    "name": "revenue_tracking",
+    "path": "/Users/divinejohns/business_data/revenue_tracking.csv",
+    "purpose": "Track revenue across all 478 businesses",
+    "columns": [
+      "date",
+      "venture_id",
+      "revenue",
+      "expenses",
+      "profit",
+      "sector"
+    ],
+    "ai_processing": {
+      "auto_calculations": [
+        "profit = revenue - expenses"
+      ],
+      "alerts": [
+        "profit < 0",
+        "revenue_decline > 20%"
+      ],
+      "forecasting": "predict_next_month_revenue",
+      "visualizations": [
+        "revenue_trend",
+        "sector_performance"
+      ]
+    },
+    "created": "2025-08-22T12:15:16.620025"
+  },
+  {
+    "name": "client_acquisition",
+    "path": "/Users/divinejohns/business_data/client_acquisition.csv",
+    "purpose": "Manage sales pipeline and conversions",
+    "columns": [
+      "lead_id",
+      "company",
+      "contact",
+      "service_interest",
+      "budget",
+      "status"
+    ],
+    "ai_processing": {
+      "lead_scoring": "calculate_conversion_probability",
+      "next_actions": "suggest_followup_actions",
+      "pipeline_analysis": "analyze_conversion_funnel",
+      "alerts": [
+        "high_value_leads",
+        "stale_opportunities"
+      ]
+    },
+    "created": "2025-08-22T12:15:16.620750"
+  },
+  {
+    "name": "content_metrics",
+    "path": "/Users/divinejohns/business_data/content_metrics.csv",
+    "purpose": "Track content performance and ROI",
+    "columns": [
+      "content_id",
+      "type",
+      "views",
+      "engagement",
+      "conversions",
+      "revenue"
+    ],
+    "ai_processing": {
+      "roi_calculation": "revenue / content_creation_cost",
+      "performance_ranking": "rank_by_engagement_rate",
+      "optimization_suggestions": "suggest_content_improvements",
+      "trend_analysis": "identify_viral_patterns"
+    },
+    "created": "2025-08-22T12:15:16.621301"
+  },
+  {
+    "name": "automation_performance",
+    "path": "/Users/divinejohns/business_data/automation_performance.csv",
+    "purpose": "Monitor N8N workflows and automation efficiency",
+    "columns": [
+      "workflow_id",
+      "executions",
+      "success_rate",
+      "time_saved",
+      "cost_savings"
+    ],
+    "ai_processing": {
+      "efficiency_metrics": "calculate_time_cost_savings",
+      "optimization_opportunities": "identify_bottlenecks",
+      "scaling_predictions": "forecast_automation_impact",
+      "alerts": [
+        "success_rate < 95%",
+        "execution_failures"
+      ]
+    },
+    "created": "2025-08-22T12:15:16.621883"
+  },
+  {
+    "name": "api_usage",
+    "path": "/Users/divinejohns/business_data/api_usage.csv",
+    "purpose": "Track API usage and costs across all services",
+    "columns": [
+      "service",
+      "requests",
+      "cost",
+      "response_time",
+      "success_rate"
+    ],
+    "ai_processing": {
+      "cost_optimization": "identify_expensive_endpoints",
+      "performance_monitoring": "track_response_degradation",
+      "usage_forecasting": "predict_monthly_costs",
+      "service_recommendations": "suggest_alternative_apis"
+    },
+    "created": "2025-08-22T12:15:16.622458"
+  }
+]
