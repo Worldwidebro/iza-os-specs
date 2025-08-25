@@ -1,0 +1,23 @@
+{
+  "name": "iza-os-kernel",
+  "version": "1.0.0",
+  "description": "Central Nervous System for IZA OS",
+  "main": "dist/iza-kernel.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/iza-kernel.js",
+    "dev": "tsc -w & node dist/iza-kernel.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@directus/sdk": "^12.0.0",
+    "ioredis": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.10",
+    "@types/node": "^20.0.0"
+  }
+}
