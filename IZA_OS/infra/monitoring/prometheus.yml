@@ -1,0 +1,129 @@
+# Prometheus Configuration for Civilization OS Dashboard
+# Scrapes metrics from all services in the stack
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'civilization-os'
+    environment: 'development'
+
+rule_files:
+  # - "rules/*.yml"
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    scrape_interval: 30s
+    metrics_path: '/metrics'
+
+  # IZA OS Services
+  - job_name: 'iza-os-services'
+    static_configs:
+      - targets:
+        - 'grafana:3000'
+        - 'n8n:5678'
+        - 'chromadb:8000'
+        - 'civilization-api:8088'
+        - 'postgres:5432'
+        - 'redis:6379'
+        - 'neo4j:7474'
+        - 'minio:9000'
+
+  # Node metrics (if running on host)
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['host.docker.internal:9100']
+
+  # Docker metrics
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['host.docker.internal:8080']
+
+  # Civilization API
+  - job_name: 'civilization-api'
+    static_configs:
+      - targets: ['civilization-api:8088']
+    scrape_interval: 15s
+    metrics_path: '/metrics'
+    scrape_timeout: 10s
+
+  # TimescaleDB (if pg_exporter is configured)
+  - job_name: 'timescaledb'
+    static_configs:
+      - targets: ['timescaledb:5432']
+    scrape_interval: 30s
+    metrics_path: '/metrics'
+
+  # MinIO metrics
+  - job_name: 'minio'
+    static_configs:
+      - targets: ['minio:9000']
+    scrape_interval: 30s
+    metrics_path: '/minio/v2/metrics/cluster'
+
+  # ChromaDB metrics (if available)
+  - job_name: 'chromadb'
+    static_configs:
+      - targets: ['chromadb:8000']
+    scrape_interval: 30s
+    metrics_path: '/api/v1/pre-flight-checks'
+    scrape_timeout: 10s
+
+  # n8n metrics
+  - job_name: 'n8n'
+    static_configs:
+      - targets: ['n8n:5678']
+    scrape_interval: 30s
+    metrics_path: '/metrics'
+    basic_auth:
+      username: 'admin'
+      password: 'civilization_2025'
+
+  # Blackbox monitoring for HTTP endpoints
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - 'http://localhost:8080/health'
+        - 'http://localhost:3000'
+        - 'http://localhost:5678'
+        - 'http://localhost:8000'
+        - 'http://localhost:8088'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+  # TCP connectivity checks
+  - job_name: 'blackbox-tcp'
+    metrics_path: /probe
+    params:
+      module: [tcp_connect]
+    static_configs:
+      - targets:
+          - timescaledb:5432
+          - minio:9000
+          - chromadb:8000
+          - n8n:5678
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+# Alerting configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           - alertmanager:9093
