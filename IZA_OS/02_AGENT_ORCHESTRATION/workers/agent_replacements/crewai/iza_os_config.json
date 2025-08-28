@@ -1,0 +1,10 @@
+{
+  "name": "CrewAI",
+  "status": "installed",
+  "capabilities": [
+    "role_based",
+    "task_coordination",
+    "business_automation"
+  ],
+  "installation_time": "2025-08-27T23:57:54.630003"
+}

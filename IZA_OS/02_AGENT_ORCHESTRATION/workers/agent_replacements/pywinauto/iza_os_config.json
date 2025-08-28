@@ -1,0 +1,10 @@
+{
+  "name": "pywinauto",
+  "status": "installed",
+  "capabilities": [
+    "windows_gui",
+    "element_inspection",
+    "automation"
+  ],
+  "installation_time": "2025-08-27T23:57:50.329069"
+}

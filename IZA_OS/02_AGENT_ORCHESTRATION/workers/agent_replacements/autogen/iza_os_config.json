@@ -1,0 +1,10 @@
+{
+  "name": "AutoGen",
+  "status": "installed",
+  "capabilities": [
+    "multi_agent",
+    "conversations",
+    "workflows"
+  ],
+  "installation_time": "2025-08-27T23:57:52.954184"
+}
