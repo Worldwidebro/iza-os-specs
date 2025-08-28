@@ -1,0 +1,18 @@
+[submodule "IZA_OS/repos/core/avs-478-ecosystem"]
+	path = IZA_OS/repos/core/avs-478-ecosystem
+	url = https://github.com/Worldwidebro/AVS-478-COMPLETE-ECOSYSTEM
+[submodule "IZA_OS/repos/business/ai-boss-holdings"]
+	path = IZA_OS/repos/business/ai-boss-holdings
+	url = https://github.com/Worldwidebro/ai-boss-holdings-v4
+[submodule "IZA_OS/IZA_OS/repos/ai-core/llm"]
+	path = IZA_OS/IZA_OS/repos/ai-core/llm
+	url = https://github.com/Worldwidebro/llm.git
+[submodule "IZA_OS/IZA_OS/repos/workflows/matrix"]
+	path = IZA_OS/IZA_OS/repos/workflows/matrix
+	url = https://github.com/Worldwidebro/babystepsmatrix1.git
+[submodule "IZA_OS/IZA_OS/repos/business/resume"]
+	path = IZA_OS/IZA_OS/repos/business/resume
+	url = https://github.com/Worldwidebro/Resume.git
+[submodule "IZA_OS/IZA_OS/repos/development/iza-os-reference"]
+	path = IZA_OS/IZA_OS/repos/development/iza-os-reference
+	url = https://github.com/Worldwidebro/iza-os.git
