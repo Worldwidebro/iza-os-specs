@@ -23,7 +23,7 @@ echo ""
 echo "STEP 2: Enter your token below"
 echo ""
 
-read -s -p "Paste your GitHub Personal Access Token: " github_token
+read -s -p "Paste your GitHub Personal Access Token: " git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hub_token
 echo ""
 
 if [ -z "$github_token" ]; then
