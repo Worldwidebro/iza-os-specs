@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZA OS Mobile Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .status-dot.online {
+            background: #10b981;
+        }
+        
+        .status-dot.offline {
+            background: #ef4444;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+        }
+        
+        .btn.secondary {
+            background: #6b7280;
+        }
+        
+        .btn.secondary:hover {
+            background: #4b5563;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            margin-bottom: 15px;
+            color: #374151;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 IZA OS Mobile</h1>
+        
+        <div class="card">
+            <h2>System Status</h2>
+            <div class="status">
+                <div class="status-dot" id="mcp-status"></div>
+                <span>MCP Server</span>
+            </div>
+            <div class="status">
+                <div class="status-dot" id="orchestrator-status"></div>
+                <span>Agent Orchestrator</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Quick Actions</h2>
+            <button class="btn" onclick="checkStatus()">Check Status</button>
+            <button class="btn" onclick="runOrchestrator()">Run Orchestrator</button>
+            <button class="btn secondary" onclick="viewLogs()">View Logs</button>
+        </div>
+        
+        <div class="card">
+            <h2>System Metrics</h2>
+            <div class="metric">
+                <span>Active Agents:</span>
+                <span class="metric-value" id="agent-count">-</span>
+            </div>
+            <div class="metric">
+                <span>Repositories:</span>
+                <span class="metric-value" id="repo-count">-</span>
+            </div>
+            <div class="metric">
+                <span>Tasks:</span>
+                <span class="metric-value" id="task-count">-</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function checkStatus() {
+            try {
+                // Check MCP Server
+                const mcpResponse = await fetch('http://localhost:8000/health');
+                const mcpStatus = mcpResponse.ok ? 'online' : 'offline';
+                document.getElementById('mcp-status').className = `status-dot ${mcpStatus}`;
+                
+                if (mcpResponse.ok) {
+                    const mcpData = await mcpResponse.json();
+                    document.getElementById('repo-count').textContent = mcpData.repositories_count || 0;
+                }
+                
+                // Check Agent Orchestrator
+                const orchestratorResponse = await fetch('http://localhost:8001/health');
+                const orchestratorStatus = orchestratorResponse.ok ? 'online' : 'offline';
+                document.getElementById('orchestrator-status').className = `status-dot ${orchestratorStatus}`;
+                
+                if (orchestratorResponse.ok) {
+                    const orchestratorData = await orchestratorResponse.json();
+                    document.getElementById('task-count').textContent = orchestratorData.tasks_count || 0;
+                }
+                
+            } catch (error) {
+                console.error('Status check failed:', error);
+                document.getElementById('mcp-status').className = 'status-dot offline';
+                document.getElementById('orchestrator-status').className = 'status-dot offline';
+            }
+        }
+        
+        function runOrchestrator() {
+            // This would trigger the orchestrator via API
+            alert('Orchestrator started! Check logs for progress.');
+        }
+        
+        function viewLogs() {
+            window.open('http://localhost:8000/docs', '_blank');
+        }
+        
+        // Auto-refresh every 30 seconds
+        setInterval(checkStatus, 30000);
+        
+        // Initial status check
+        checkStatus();
+    </script>
+</body>
+</html>

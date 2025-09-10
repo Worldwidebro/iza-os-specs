@@ -1,0 +1,35 @@
+{
+  "mobile": {
+    "enabled": true,
+    "touchOptimized": true,
+    "quickActions": [
+      {
+        "name": "Start IZA OS",
+        "command": "./mobile_start.sh",
+        "icon": "🚀"
+      },
+      {
+        "name": "Check Status",
+        "command": "./mobile_status.sh",
+        "icon": "📊"
+      },
+      {
+        "name": "Run Orchestrator",
+        "command": "./mobile_orchestrator.sh",
+        "icon": "🤖"
+      },
+      {
+        "name": "Stop Services",
+        "command": "./mobile_stop.sh",
+        "icon": "🛑"
+      }
+    ],
+    "mobileShortcuts": {
+      "iza-start": "./mobile_start.sh",
+      "iza-status": "./mobile_status.sh",
+      "iza-orchestrator": "./mobile_orchestrator.sh",
+      "iza-stop": "./mobile_stop.sh",
+      "iza-dashboard": "open mobile_dashboard/index.html"
+    }
+  }
+}
