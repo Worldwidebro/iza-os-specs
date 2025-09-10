@@ -1,0 +1,128 @@
+# agent_config.yaml
+# Configuration for IZA OS Agent Orchestrator
+
+# API Keys
+github_token: ${GITHUB_TOKEN}
+openai_api_key: ${OPENAI_API_KEY}
+anthropic_api_key: ${ANTHROPIC_API_KEY}
+
+# Paths
+local_repos_path: "~/repositories"
+analysis_output_path: "~/analysis_results"
+config_output_path: "~/integration_configs"
+
+# Task Management
+max_concurrent_tasks: 5
+task_timeout: 300
+auto_retry_failed_tasks: true
+max_retries: 3
+
+# Git Configuration
+auto_commit: true
+git_user_name: "IZA OS Agent"
+git_user_email: "agent@iza-os.com"
+commit_message_template: "feat: {action} {repository} - {description}"
+
+# Integration Settings
+auto_clone_repos: true
+auto_create_configs: true
+auto_generate_docs: true
+auto_test_integrations: true
+
+# Repository Categories and Priorities
+repository_categories:
+  mcp:
+    priority: 10
+    integration_type: "mcp_server"
+    use_cases: ["repository_management", "api_integration"]
+  
+  agents:
+    priority: 9
+    integration_type: "agent_framework"
+    use_cases: ["multi_agent", "automation", "orchestration"]
+  
+  workflow:
+    priority: 8
+    integration_type: "workflow_service"
+    use_cases: ["automation", "integration", "orchestration"]
+  
+  ai_platform:
+    priority: 8
+    integration_type: "ai_service"
+    use_cases: ["ai_applications", "llm_platform"]
+  
+  knowledge:
+    priority: 7
+    integration_type: "knowledge_service"
+    use_cases: ["knowledge_graph", "search", "analysis"]
+  
+  automation:
+    priority: 7
+    integration_type: "automation_service"
+    use_cases: ["browser_automation", "testing", "scraping"]
+  
+  documentation:
+    priority: 6
+    integration_type: "documentation_service"
+    use_cases: ["content_generation", "markdown", "conversion"]
+  
+  reference:
+    priority: 5
+    integration_type: "reference"
+    use_cases: ["examples", "tutorials", "best_practices"]
+
+# Analysis Settings
+analysis_depth: "comprehensive"  # basic, standard, comprehensive
+include_dependency_analysis: true
+include_security_analysis: true
+include_performance_analysis: true
+include_integration_complexity: true
+
+# Output Formats
+output_formats:
+  - "json"
+  - "yaml"
+  - "markdown"
+  - "html"
+
+# Monitoring and Logging
+log_level: "INFO"
+enable_metrics: true
+metrics_port: 9090
+health_check_interval: 30
+
+# Integration Templates
+integration_templates:
+  mcp_server:
+    template_path: "templates/mcp_server_template.yaml"
+    docker_template: "templates/mcp_docker_template.yml"
+    config_template: "templates/mcp_config_template.yaml"
+  
+  agent_framework:
+    template_path: "templates/agent_framework_template.yaml"
+    docker_template: "templates/agent_docker_template.yml"
+    config_template: "templates/agent_config_template.yaml"
+  
+  workflow_service:
+    template_path: "templates/workflow_service_template.yaml"
+    docker_template: "templates/workflow_docker_template.yml"
+    config_template: "templates/workflow_config_template.yaml"
+
+# Notification Settings
+notifications:
+  enabled: true
+  webhook_url: ${WEBHOOK_URL}
+  email_notifications: false
+  slack_notifications: false
+  
+# Backup and Recovery
+backup_enabled: true
+backup_interval: "daily"
+backup_retention_days: 30
+backup_location: "~/backups"
+
+# Performance Settings
+cache_enabled: true
+cache_ttl: 3600
+max_cache_size: "1GB"
+enable_compression: true

@@ -1,0 +1,124 @@
+# mcp_config.yaml
+# Configuration for Repository MCP Server
+
+# GitHub Integration
+github_token: ${GITHUB_TOKEN}
+github_username: "divinejohns"  # Replace with your GitHub username
+
+# GitToDoc Integration (Optional)
+gittodoc_api_key: ${GITTODOC_API_KEY}
+gittodoc_auto_sync: false  # Set to true to automatically sync to GitToDoc
+
+# Local Repository Settings
+local_repos_path: "~/repositories"
+auto_clone: true
+include_private: true
+
+# Neo4j Knowledge Graph
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: ${NEO4J_PASSWORD}
+  database: "repositories"
+
+# Embedding & AI
+embedding:
+  provider: "openai"  # or "huggingface", "local"
+  model: "text-embedding-3-small"
+  api_key: ${OPENAI_API_KEY}
+
+# Anthropic Claude (for insights)
+anthropic:
+  api_key: ${ANTHROPIC_API_KEY}
+
+# Sync Settings
+sync_settings:
+  auto_clone: true
+  auto_gittodoc: false
+  include_private: true
+  exclude_patterns:
+    - ".git"
+    - "node_modules"
+    - "__pycache__"
+    - ".env"
+    - "*.log"
+    - "dist"
+    - "build"
+    - ".cache"
+  
+  # File types to analyze
+  analyze_extensions:
+    - ".py"
+    - ".js"
+    - ".ts"
+    - ".jsx"
+    - ".tsx"
+    - ".java"
+    - ".cpp"
+    - ".c"
+    - ".go"
+    - ".rs"
+    - ".php"
+    - ".rb"
+    - ".swift"
+    - ".kt"
+    - ".scala"
+    - ".md"
+    - ".yaml"
+    - ".yml"
+    - ".json"
+    - ".toml"
+
+# Repository Filters
+repository_filters:
+  min_stars: 0
+  exclude_forks: false
+  languages:
+    - "Python"
+    - "JavaScript"
+    - "TypeScript"
+    - "Go"
+    - "Rust"
+    # Add more languages as needed
+
+# Cursor Integration
+cursor:
+  enabled: true
+  mcp_port: 8000
+  auto_index: true  # Auto-index repositories for Cursor AI
+
+# Obsidian Integration
+obsidian:
+  vault_path: "~/Documents/Obsidian/YourVault"
+  auto_create_notes: true
+  note_template: |
+    ---
+    type: repository
+    repo: {{repo_name}}
+    url: {{repo_url}}
+    language: {{primary_language}}
+    stars: {{stars}}
+    last_updated: {{last_updated}}
+    gittodoc_url: {{gittodoc_url}}
+    tags:
+      - repository
+      - {{primary_language}}
+    ---
+    
+    # {{repo_name}}
+    
+    {{description}}
+    
+    ## Quick Links
+    - [Repository]({{repo_url}})
+    - [GitToDoc]({{gittodoc_url}})
+    - [Local Path]({{local_path}})
+    
+    ## Tech Stack
+    {{tech_stack}}
+    
+    ## Recent Activity
+    {{recent_commits}}
+    
+    ## Related Repositories
+    {{related_repos}}
