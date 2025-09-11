@@ -1,0 +1,37 @@
+# IZA OS Pricing Model
+pricing_tiers:
+  free:
+    name: "IZA OS Local"
+    price: 0
+    features:
+      - Local AI orchestration
+      - Basic mobile access
+      - Limited repositories
+      - Community support
+  
+  premium:
+    name: "IZA OS Cloud"
+    price: 99
+    features:
+      - Cloud AI orchestration
+      - Full mobile access
+      - Unlimited repositories
+      - Priority support
+      - Advanced analytics
+  
+  enterprise:
+    name: "IZA OS Enterprise"
+    price: 999
+    features:
+      - Custom AI models
+      - White-label mobile app
+      - Dedicated infrastructure
+      - 24/7 support
+      - Custom integrations
+
+mobile_features:
+  touch_optimized: true
+  voice_control: true
+  offline_support: true
+  push_notifications: true
+  real_time_sync: true

@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "last_updated": "2024-01-15",
+  "iza_os": {
+    "name": "IZA OS - The Operating System for an Autonomous Venture Studio",
+    "description": "Complete AI orchestration system with Claude integration",
+    "version": "1.0.0",
+    "status": "production"
+  },
+  "repositories": {
+    "mcp_servers": [
+      "https://github.com/jlowin/fastmcp.git",
+      "https://github.com/mark3labs/mcp-go.git",
+      "https://github.com/idosal/git-mcp.git",
+      "https://github.com/tadata-org/fastapi_mcp.git"
+    ],
+    "agent_frameworks": [
+      "https://github.com/microsoft/autogen.git",
+      "https://github.com/VoltAgent/voltagent.git",
+      "https://github.com/kortix-ai/suna.git",
+      "https://github.com/Continual-Intelligence/SEAL.git",
+      "https://github.com/bmad-code-org/BMAD-METHOD.git"
+    ],
+    "models": [
+      "https://github.com/vllm-project/vllm.git",
+      "https://github.com/ggml-org/llama.cpp.git",
+      "https://github.com/nomic-ai/gpt4all.git",
+      "https://github.com/unslothai/unsloth.git"
+    ],
+    "apps": [
+      "https://github.com/lobehub/lobe-chat.git",
+      "https://github.com/mendableai/open-lovable.git",
+      "https://github.com/nanobrowser/nanobrowser.git",
+      "https://github.com/Browserbase/stagehand.git"
+    ],
+    "knowledge": [
+      "https://github.com/awesome-selfhosted/awesome-selfhosted.git",
+      "https://github.com/trimstray/the-book-of-secret-knowledge.git",
+      "https://github.com/EbookFoundation/free-programming-books.git"
+    ],
+    "automation": [
+      "https://github.com/n8n-io/n8n.git",
+      "https://github.com/Zie619/n8n-workflows.git",
+      "https://github.com/enescingoz/awesome-n8n-templates.git"
+    ],
+    "ui_frameworks": [
+      "https://github.com/tailwindlabs/tailwindcss.git",
+      "https://github.com/vitejs/vite.git",
+      "https://github.com/drizzle-team/drizzle-orm.git",
+      "https://github.com/storybookjs/storybook.git"
+    ]
+  }
+}

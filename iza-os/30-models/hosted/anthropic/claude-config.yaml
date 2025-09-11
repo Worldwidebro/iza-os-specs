@@ -1,0 +1,32 @@
+# IZA OS Claude Configuration
+models:
+  claude:
+    api_key: ${ANTHROPIC_API_KEY}
+    default_model: "claude-3-sonnet-20240229"
+    timeout: 30
+    max_retries: 3
+    mobile_optimized: true
+  
+  claude_mobile:
+    api_key: ${ANTHROPIC_API_KEY}
+    default_model: "claude-3-haiku-20240307"
+    timeout: 15
+    max_retries: 2
+    mobile_optimized: true
+
+rate_limiting:
+  requests_per_minute: 50
+  burst_capacity: 10
+  mobile_requests_per_minute: 30
+
+caching:
+  enabled: true
+  ttl_minutes: 60
+  max_size_mb: 1000
+  mobile_cache_size_mb: 500
+
+iza_os_features:
+  orchestration: true
+  mobile_access: true
+  voice_control: true
+  offline_support: true

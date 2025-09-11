@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: iza-os-ingestion
+  namespace: iza-os
+data:
+  config.yaml: |
+    sources:
+      - github_repos
+      - apple_notes
+      - obsidian_vaults
+      - mcp_servers
+      - mobile_interactions
+    destinations:
+      - bronze_lake
+      - knowledge_graph
+      - mobile_cache
+    processing:
+      real_time: true
+      batch_processing: true
+      mobile_optimized: true
