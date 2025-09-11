@@ -1,0 +1,24 @@
+tools:
+  apple_notes:
+    endpoint: "http://localhost:8001"
+    capabilities: ["list_notes", "get_note_content", "search_notes"]
+    auth_required: false
+    rate_limit: 100
+  
+  google_drive:
+    endpoint: "http://localhost:8002"
+    capabilities: ["search_files", "get_file_content", "list_files"]
+    auth_required: true
+    rate_limit: 50
+  
+  github:
+    endpoint: "http://localhost:8003"
+    capabilities: ["search_repos", "get_repo_info", "list_issues"]
+    auth_required: true
+    rate_limit: 60
+  
+  calendar:
+    endpoint: "http://localhost:8004"
+    capabilities: ["get_events", "create_event", "search_events"]
+    auth_required: true
+    rate_limit: 30

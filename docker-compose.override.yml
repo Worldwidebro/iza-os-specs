@@ -1,0 +1,27 @@
+# Override for development environment
+
+version: '3.8'
+
+services:
+  orchestrator:
+    volumes:
+      - ./src:/app
+    environment:
+      - LOG_LEVEL=DEBUG
+      - ENVIRONMENT=development
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  finance-agent:
+    volumes:
+      - ./agents/finance_agent:/app
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  marketing-agent:
+    volumes:
+      - ./agents/marketing_agent:/app
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  operations-agent:
+    volumes:
+      - ./agents/operations_agent:/app
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
