@@ -1,0 +1,4 @@
+workflow_id,executions,success_rate,time_saved,cost_savings
+N8N-001,456,98.5,120,2400.0
+N8N-002,234,94.2,80,1600.0
+N8N-003,789,99.1,200,4000.0

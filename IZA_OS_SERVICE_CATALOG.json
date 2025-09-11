@@ -1,0 +1,324 @@
+{
+  "company_name": "IZA OS - AI Empire Solutions",
+  "tagline": "Complete AI Transformation & Automation Services",
+  "last_updated": "2024-12-14T21:00:00Z",
+  "contact": {
+    "email": "hello@iza-os.com",
+    "website": "https://iza-os.com",
+    "phone": "+1-555-IZA-EMPIRE"
+  },
+  "service_categories": {
+    "claude_integration_services": {
+      "category_name": "Claude Integration & Development",
+      "description": "Specialized Claude AI implementation and optimization services",
+      "services": [
+        {
+          "service_id": "CI-001",
+          "name": "Enterprise Claude Code Templates Setup",
+          "description": "Complete deployment of 120+ Claude code components, custom agents, and development workflows",
+          "pricing": "$1,000 - $5,000",
+          "delivery_time": "2-5 days",
+          "includes": [
+            "48 specialized AI agents deployment",
+            "21 custom slash commands",
+            "Real-time analytics dashboard",
+            "Template-based rapid development system",
+            "Full documentation and training"
+          ],
+          "target_clients": ["Enterprises", "Development teams", "Startups"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "CI-002", 
+          "name": "AI Development Workflow Consulting",
+          "description": "Optimize development processes with AI-powered automation and Claude integration",
+          "pricing": "$500 - $2,000/day",
+          "delivery_time": "1-3 days",
+          "includes": [
+            "Workflow analysis and optimization",
+            "Claude agent deployment",
+            "Custom command development",
+            "Team training and onboarding"
+          ],
+          "target_clients": ["Development teams", "Tech companies"],
+          "revenue_potential": "MEDIUM-HIGH",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    "business_automation_services": {
+      "category_name": "Business Process Automation",
+      "description": "N8N workflow automation and business process optimization",
+      "services": [
+        {
+          "service_id": "BA-001",
+          "name": "Complete Business Automation Suite",
+          "description": "600+ N8N workflows for complete business process automation",
+          "pricing": "$2,000 - $10,000/project",
+          "delivery_time": "3-10 days",
+          "includes": [
+            "Lead generation automation",
+            "Client onboarding workflows",
+            "Payment processing automation",
+            "Email marketing sequences",
+            "CRM integration",
+            "Analytics and reporting"
+          ],
+          "target_clients": ["SMBs", "Mid-size companies", "Service businesses"],
+          "revenue_potential": "CRITICAL",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "BA-002",
+          "name": "Custom Workflow Development",
+          "description": "Tailored automation workflows for specific business needs",
+          "pricing": "$500 - $3,000/workflow",
+          "delivery_time": "1-5 days",
+          "includes": [
+            "Custom workflow design",
+            "Integration setup",
+            "Testing and optimization",
+            "Documentation and training"
+          ],
+          "target_clients": ["All business sizes"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    "ai_integration_services": {
+      "category_name": "Enterprise AI Integration",
+      "description": "Complete AI system integration and custom AI solution development",
+      "services": [
+        {
+          "service_id": "AI-001",
+          "name": "Enterprise AI Transformation",
+          "description": "Complete AI ecosystem implementation using IZA OS architecture",
+          "pricing": "$10,000 - $50,000",
+          "delivery_time": "2-8 weeks",
+          "includes": [
+            "AI system integration consulting",
+            "Custom AI solution development",
+            "API orchestration services",
+            "Memory system implementation",
+            "Agent ecosystem deployment",
+            "Training and ongoing support"
+          ],
+          "target_clients": ["Fortune 500", "Large enterprises"],
+          "revenue_potential": "PREMIUM",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "AI-002",
+          "name": "AI System Integration Consulting",
+          "description": "Strategic AI integration planning and implementation",
+          "pricing": "$3,000 - $15,000",
+          "delivery_time": "1-4 weeks",
+          "includes": [
+            "AI readiness assessment",
+            "Integration strategy development",
+            "System architecture design",
+            "Implementation roadmap"
+          ],
+          "target_clients": ["Mid to large enterprises"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    "chat_platform_services": {
+      "category_name": "AI Chat Platform Development",
+      "description": "Custom AI chat platforms using Lobe Chat technology",
+      "services": [
+        {
+          "service_id": "CP-001",
+          "name": "Custom AI Chat Platform",
+          "description": "Complete AI chat platform deployment with conversation management",
+          "pricing": "$2,000 - $10,000",
+          "delivery_time": "3-7 days",
+          "includes": [
+            "AI chat interface setup",
+            "Model integration",
+            "Conversation management system",
+            "Analytics and reporting",
+            "White-label branding"
+          ],
+          "target_clients": ["Businesses needing customer support", "SaaS companies"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "CP-002",
+          "name": "Enterprise Chat Integration",
+          "description": "Enterprise-grade AI chat integration with existing systems",
+          "pricing": "$3,000 - $15,000",
+          "delivery_time": "5-10 days",
+          "includes": [
+            "CRM integration",
+            "Multi-channel deployment",
+            "Advanced analytics",
+            "Security compliance",
+            "Training and support"
+          ],
+          "target_clients": ["Large enterprises", "E-commerce platforms"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    "social_media_automation": {
+      "category_name": "Social Media Management & Automation",
+      "description": "Complete social media automation using Postiz platform",
+      "services": [
+        {
+          "service_id": "SM-001",
+          "name": "Social Media Automation Setup",
+          "description": "Complete social media management and automation system",
+          "pricing": "$800 - $3,000",
+          "delivery_time": "2-5 days",
+          "includes": [
+            "Multi-platform scheduling",
+            "Content automation",
+            "Analytics dashboard",
+            "Engagement automation",
+            "Growth tracking"
+          ],
+          "target_clients": ["Businesses", "Influencers", "Marketing agencies"],
+          "revenue_potential": "MEDIUM",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "SM-002",
+          "name": "White-label Social Platform",
+          "description": "Custom-branded social media management platform",
+          "pricing": "$5,000 - $20,000",
+          "delivery_time": "1-3 weeks",
+          "includes": [
+            "Custom branding",
+            "Multi-tenant architecture",
+            "Advanced analytics",
+            "Client management system",
+            "Revenue sharing model"
+          ],
+          "target_clients": ["Agencies", "SaaS entrepreneurs"],
+          "revenue_potential": "HIGH",
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    "web_automation_services": {
+      "category_name": "Web Automation & Data Services",
+      "description": "Browser automation and data extraction using Stagehand technology",
+      "services": [
+        {
+          "service_id": "WA-001",
+          "name": "Web Automation Consulting",
+          "description": "Custom web automation solutions for business processes",
+          "pricing": "$1,500 - $7,000",
+          "delivery_time": "3-10 days",
+          "includes": [
+            "Process automation design",
+            "Browser automation setup",
+            "Data extraction workflows",
+            "Error handling and monitoring",
+            "Documentation and training"
+          ],
+          "target_clients": ["E-commerce", "Data companies", "Research firms"],
+          "revenue_potential": "MEDIUM-HIGH",
+          "status": "AVAILABLE"
+        },
+        {
+          "service_id": "WA-002",
+          "name": "Data Extraction Services",
+          "description": "Professional data extraction and web scraping services",
+          "pricing": "$800 - $4,000",
+          "delivery_time": "1-5 days",
+          "includes": [
+            "Custom scraping solutions",
+            "Data cleaning and formatting",
+            "Automated delivery systems",
+            "Compliance and legal review"
+          ],
+          "target_clients": ["Market research", "Lead generation", "Analytics companies"],
+          "revenue_potential": "MEDIUM",
+          "status": "AVAILABLE"
+        }
+      ]
+    }
+  },
+  "package_deals": {
+    "startup_ai_transformation": {
+      "package_name": "Startup AI Transformation Package",
+      "description": "Complete AI transformation for startups and small businesses",
+      "pricing": "$7,500",
+      "savings": "Save $2,500 compared to individual services",
+      "includes": [
+        "Claude Code Templates Setup",
+        "Basic Business Automation",
+        "AI Chat Platform",
+        "Social Media Automation",
+        "3 months support"
+      ],
+      "target_clients": ["Startups", "Small businesses"],
+      "delivery_time": "2-3 weeks"
+    },
+    "enterprise_ai_empire": {
+      "package_name": "Enterprise AI Empire Package",
+      "description": "Complete AI empire implementation for large organizations",
+      "pricing": "$75,000",
+      "savings": "Save $25,000 compared to individual services",
+      "includes": [
+        "Complete Enterprise AI Transformation",
+        "Full Business Automation Suite",
+        "White-label Chat Platform",
+        "Custom Web Automation",
+        "6 months dedicated support",
+        "Training and certification"
+      ],
+      "target_clients": ["Fortune 500", "Large enterprises"],
+      "delivery_time": "8-12 weeks"
+    }
+  },
+  "payment_options": {
+    "methods": ["Stripe", "Wire Transfer", "ACH", "Crypto (BTC, ETH)"],
+    "terms": {
+      "deposit": "50% upfront, 50% on completion",
+      "enterprise_terms": "Net 30 for qualified enterprises",
+      "rush_delivery": "50% surcharge for 24-hour delivery",
+      "refund_policy": "30-day satisfaction guarantee"
+    }
+  },
+  "support_levels": {
+    "basic": {
+      "name": "Basic Support",
+      "duration": "30 days",
+      "includes": ["Email support", "Bug fixes", "Basic documentation"],
+      "cost": "Included"
+    },
+    "premium": {
+      "name": "Premium Support",
+      "duration": "90 days",
+      "includes": ["Priority support", "Phone consultation", "System optimization", "Training sessions"],
+      "cost": "+$1,000"
+    },
+    "enterprise": {
+      "name": "Enterprise Support",
+      "duration": "12 months",
+      "includes": ["24/7 support", "Dedicated success manager", "Monthly optimization", "Unlimited training"],
+      "cost": "+$5,000"
+    }
+  },
+  "credentials": {
+    "experience": "120+ repositories integrated, 600+ automation workflows, 48 AI agents deployed",
+    "technologies": ["Claude AI", "N8N", "Lobe Chat", "Postiz", "Stagehand", "OpenAI", "Anthropic"],
+    "certifications": ["AI Development", "Business Automation", "Enterprise Integration"],
+    "portfolio": "Available upon request - enterprise case studies and ROI reports"
+  },
+  "next_steps": {
+    "consultation": "Free 30-minute consultation to assess your needs",
+    "proposal": "Custom proposal within 24 hours",
+    "onboarding": "Dedicated project manager assigned",
+    "delivery": "Agile delivery with weekly progress updates"
+  }
+}

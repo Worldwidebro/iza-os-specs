@@ -1,0 +1,147 @@
+services:
+  # Resume Builder Service
+  resume-builder:
+    image: iza-os/resume-builder:production
+    environment:
+      - BUSINESS_MODEL=resume-builder
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/resume_builder.db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Print-on-Demand Service
+  print-on-demand:
+    image: iza-os/print-on-demand:production
+    environment:
+      - BUSINESS_MODEL=print-on-demand
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/print_on_demand.db
+      - PRINTFUL_API_KEY=${PRINTFUL_API_KEY}
+      - ETSY_API_KEY=${ETSY_API_KEY}
+      - SHOPIFY_API_KEY=${SHOPIFY_API_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./products:/app/products
+    ports:
+      - "8002:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # SEO Service
+  seo-service:
+    image: iza-os/seo-service:production
+    environment:
+      - BUSINESS_MODEL=seo-service
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/seo_service.db
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GMB_API_KEY=${GMB_API_KEY}
+      - SERP_API_KEY=${SERP_API_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./content:/app/content
+    ports:
+      - "8003:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Fitness Coach Service
+  fitness-coach:
+    image: iza-os/fitness-coach:production
+    environment:
+      - BUSINESS_MODEL=fitness-coach
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/fitness_coach.db
+      - NUTRITION_API_KEY=${NUTRITION_API_KEY}
+      - FITNESS_API_KEY=${FITNESS_API_KEY}
+      - PUSH_NOTIFICATION_KEY=${PUSH_NOTIFICATION_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./meal_plans:/app/meal_plans
+      - ./workout_plans:/app/workout_plans
+    ports:
+      - "8004:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # YouTube Factory Service
+  youtube-factory:
+    image: iza-os/youtube-factory:production
+    environment:
+      - BUSINESS_MODEL=youtube-factory
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///app/data/youtube_factory.db
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./videos:/app/videos
+      - ./audio:/app/audio
+      - ./thumbnails:/app/thumbnails
+    ports:
+      - "8005:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for caching and job queues
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # PostgreSQL for production database
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=iza_os_production
+      - POSTGRES_USER=${POSTGRES_USER:-iza_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  postgres_data:

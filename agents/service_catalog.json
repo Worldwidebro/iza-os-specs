@@ -1,0 +1,424 @@
+{
+  "last_updated": "2025-07-25T00:39:53.231038",
+  "models": {
+    "gpt-4-turbo": {
+      "model_id": "gpt-4-turbo",
+      "provider": "openai",
+      "model_type": "chat",
+      "display_name": "GPT-4 Turbo",
+      "description": "Most capable OpenAI model with 128K context",
+      "max_context_length": 128000,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 500,
+        "requests_per_hour": 10000,
+        "requests_per_day": 200000,
+        "tokens_per_minute": 150000,
+        "concurrent_requests": 100
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 5000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.01,
+        "output_cost_per_1k_tokens": 0.03,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 9.5,
+        "speed_score": 8.0,
+        "reliability_score": 9.0,
+        "feature_richness": 9.5,
+        "documentation_quality": 9.0,
+        "community_support": 9.5,
+        "last_updated": "2025-07-25T00:39:53.230961",
+        "overall_score": 8.975
+      },
+      "additional_features": [
+        "vision",
+        "json_mode",
+        "function_calling"
+      ],
+      "api_endpoint": "https://api.openai.com/v1/chat/completions",
+      "auth_method": "bearer_token",
+      "status": "active"
+    },
+    "gpt-3.5-turbo": {
+      "model_id": "gpt-3.5-turbo",
+      "provider": "openai",
+      "model_type": "chat",
+      "display_name": "GPT-3.5 Turbo",
+      "description": "Fast and cost-effective OpenAI model",
+      "max_context_length": 16384,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 3500,
+        "requests_per_hour": 50000,
+        "requests_per_day": 500000,
+        "tokens_per_minute": 90000,
+        "concurrent_requests": 100
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 100000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.0005,
+        "output_cost_per_1k_tokens": 0.0015,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 8.5,
+        "speed_score": 9.0,
+        "reliability_score": 9.0,
+        "feature_richness": 8.0,
+        "documentation_quality": 9.0,
+        "community_support": 9.5,
+        "last_updated": "2025-07-25T00:39:53.230983",
+        "overall_score": 8.774999999999999
+      },
+      "additional_features": [
+        "function_calling",
+        "json_mode"
+      ],
+      "api_endpoint": "https://api.openai.com/v1/chat/completions",
+      "auth_method": "bearer_token",
+      "status": "active"
+    },
+    "claude-3-opus": {
+      "model_id": "claude-3-opus",
+      "provider": "anthropic",
+      "model_type": "chat",
+      "display_name": "Claude 3 Opus",
+      "description": "Anthropic's most capable model",
+      "max_context_length": 200000,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 50,
+        "requests_per_hour": 1000,
+        "requests_per_day": 5000,
+        "tokens_per_minute": 40000,
+        "concurrent_requests": 10
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 30000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.015,
+        "output_cost_per_1k_tokens": 0.075,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 9.8,
+        "speed_score": 7.5,
+        "reliability_score": 9.5,
+        "feature_richness": 9.0,
+        "documentation_quality": 8.5,
+        "community_support": 8.0,
+        "last_updated": "2025-07-25T00:39:53.230994",
+        "overall_score": 8.865
+      },
+      "additional_features": [
+        "vision",
+        "document_analysis",
+        "code_analysis"
+      ],
+      "api_endpoint": "https://api.anthropic.com/v1/messages",
+      "auth_method": "api_key",
+      "status": "active"
+    },
+    "claude-3-sonnet": {
+      "model_id": "claude-3-sonnet",
+      "provider": "anthropic",
+      "model_type": "chat",
+      "display_name": "Claude 3 Sonnet",
+      "description": "Balanced performance and cost",
+      "max_context_length": 200000,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 300,
+        "requests_per_hour": 5000,
+        "requests_per_day": 25000,
+        "tokens_per_minute": 40000,
+        "concurrent_requests": 20
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 100000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.003,
+        "output_cost_per_1k_tokens": 0.015,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 9.0,
+        "speed_score": 8.5,
+        "reliability_score": 9.0,
+        "feature_richness": 8.5,
+        "documentation_quality": 8.5,
+        "community_support": 8.0,
+        "last_updated": "2025-07-25T00:39:53.231002",
+        "overall_score": 8.725
+      },
+      "additional_features": [
+        "vision",
+        "document_analysis"
+      ],
+      "api_endpoint": "https://api.anthropic.com/v1/messages",
+      "auth_method": "api_key",
+      "status": "active"
+    },
+    "gemini-pro": {
+      "model_id": "gemini-pro",
+      "provider": "google",
+      "model_type": "chat",
+      "display_name": "Gemini Pro",
+      "description": "Google's advanced multimodal model",
+      "max_context_length": 32768,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 60,
+        "requests_per_hour": 1000,
+        "requests_per_day": 15000,
+        "tokens_per_minute": 32000,
+        "concurrent_requests": 15
+      },
+      "free_tier": {
+        "monthly_requests": 60,
+        "monthly_tokens": null,
+        "daily_requests": 15,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.00025,
+        "output_cost_per_1k_tokens": 0.0005,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 8.8,
+        "speed_score": 8.8,
+        "reliability_score": 8.5,
+        "feature_richness": 9.2,
+        "documentation_quality": 8.0,
+        "community_support": 7.5,
+        "last_updated": "2025-07-25T00:39:53.231010",
+        "overall_score": 8.635
+      },
+      "additional_features": [
+        "vision",
+        "multimodal",
+        "code_execution"
+      ],
+      "api_endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+      "auth_method": "api_key",
+      "status": "active"
+    },
+    "command-r-plus": {
+      "model_id": "command-r-plus",
+      "provider": "cohere",
+      "model_type": "chat",
+      "display_name": "Command R+",
+      "description": "Cohere's flagship model for RAG and tool use",
+      "max_context_length": 128000,
+      "supports_streaming": true,
+      "supports_function_calling": true,
+      "rate_limits": {
+        "requests_per_minute": 100,
+        "requests_per_hour": 2000,
+        "requests_per_day": 10000,
+        "tokens_per_minute": 40000,
+        "concurrent_requests": null
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 100000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.003,
+        "output_cost_per_1k_tokens": 0.015,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 8.5,
+        "speed_score": 8.0,
+        "reliability_score": 8.5,
+        "feature_richness": 8.8,
+        "documentation_quality": 8.5,
+        "community_support": 7.0,
+        "last_updated": "2025-07-25T00:39:53.231018",
+        "overall_score": 8.33
+      },
+      "additional_features": [
+        "rag_optimized",
+        "tool_use",
+        "multilingual"
+      ],
+      "api_endpoint": "https://api.cohere.ai/v1/chat",
+      "auth_method": "bearer_token",
+      "status": "active"
+    },
+    "text-embedding-ada-002": {
+      "model_id": "text-embedding-ada-002",
+      "provider": "openai",
+      "model_type": "embeddings",
+      "display_name": "Ada Embeddings v2",
+      "description": "OpenAI's embeddings model",
+      "max_context_length": 8191,
+      "supports_streaming": false,
+      "supports_function_calling": false,
+      "rate_limits": {
+        "requests_per_minute": 3000,
+        "requests_per_hour": 50000,
+        "requests_per_day": 1000000,
+        "tokens_per_minute": 1000000,
+        "concurrent_requests": null
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 1000000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.0001,
+        "output_cost_per_1k_tokens": null,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 8.5,
+        "speed_score": 9.0,
+        "reliability_score": 9.0,
+        "feature_richness": 7.5,
+        "documentation_quality": 9.0,
+        "community_support": 9.0,
+        "last_updated": "2025-07-25T00:39:53.231025",
+        "overall_score": 8.7
+      },
+      "additional_features": [
+        "1536_dimensions"
+      ],
+      "api_endpoint": "https://api.openai.com/v1/embeddings",
+      "auth_method": "bearer_token",
+      "status": "active"
+    },
+    "codestral": {
+      "model_id": "codestral",
+      "provider": "together",
+      "model_type": "code_generation",
+      "display_name": "Codestral",
+      "description": "Specialized code generation model",
+      "max_context_length": 32768,
+      "supports_streaming": true,
+      "supports_function_calling": false,
+      "rate_limits": {
+        "requests_per_minute": 100,
+        "requests_per_hour": 1000,
+        "requests_per_day": 5000,
+        "tokens_per_minute": 50000,
+        "concurrent_requests": null
+      },
+      "free_tier": {
+        "monthly_requests": null,
+        "monthly_tokens": 50000,
+        "daily_requests": null,
+        "daily_tokens": null,
+        "total_requests": null,
+        "expires_after_days": 30
+      },
+      "pricing": {
+        "type": "pay_per_token",
+        "input_cost_per_1k_tokens": 0.0002,
+        "output_cost_per_1k_tokens": 0.0006,
+        "cost_per_request": null,
+        "monthly_subscription": null,
+        "setup_fee": null,
+        "minimum_spend": null,
+        "currency": "USD"
+      },
+      "quality_metrics": {
+        "accuracy_score": 9.0,
+        "speed_score": 8.5,
+        "reliability_score": 8.5,
+        "feature_richness": 8.0,
+        "documentation_quality": 7.5,
+        "community_support": 7.0,
+        "last_updated": "2025-07-25T00:39:53.231035",
+        "overall_score": 8.424999999999999
+      },
+      "additional_features": [
+        "code_completion",
+        "multi_language"
+      ],
+      "api_endpoint": "https://api.together.xyz/v1/completions",
+      "auth_method": "bearer_token",
+      "status": "active"
+    }
+  }
+}

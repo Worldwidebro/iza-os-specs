@@ -1,0 +1,22 @@
+{
+  "data_sources": {
+    "revenue_tracker": "/Users/divinejohns/AI-Boss-Holdings/business-systems/revenue.db",
+    "client_crm": "/Users/divinejohns/client_acquisition_center.py",
+    "content_pipeline": "/Users/divinejohns/video-creation-automation.py",
+    "n8n_workflows": "/Users/divinejohns/n8n-workflows/",
+    "api_logs": "/Users/divinejohns/claude_logs/"
+  },
+  "sync_schedule": {
+    "revenue_data": "hourly",
+    "client_data": "real_time",
+    "content_metrics": "daily",
+    "automation_metrics": "hourly",
+    "api_usage": "daily"
+  },
+  "automated_reports": {
+    "daily_revenue": "Generate at 9 AM",
+    "weekly_pipeline": "Generate on Sundays",
+    "monthly_performance": "Generate on 1st of month",
+    "quarterly_analysis": "Generate quarterly"
+  }
+}

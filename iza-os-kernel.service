@@ -1,0 +1,14 @@
+[Unit]
+Description=IZA OS Kernel Service
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/Users/divinejohns/memU
+ExecStart=/usr/local/bin/docker-compose -f docker-compose.kernel.yml up
+ExecStop=/usr/local/bin/docker-compose -f docker-compose.kernel.yml down
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

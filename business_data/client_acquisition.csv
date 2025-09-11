@@ -1,0 +1,4 @@
+lead_id,company,contact,service_interest,budget,status
+LEAD-001,TechCorp Inc,john@techcorp.com,Video Creation,5000,Qualified
+LEAD-002,StartupXYZ,jane@startupxyz.com,Automation Setup,15000,Proposal Sent
+LEAD-003,BigBusiness LLC,bob@bigbusiness.com,AI Integration,25000,Negotiating

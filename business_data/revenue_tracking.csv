@@ -1,0 +1,7 @@
+date,service_id,client_name,revenue,expenses,profit,status,delivery_time,notes
+2025-01-01,EC-001,,1500.0,450.0,1050.0,COMPLETED,,ECOMMERCE
+2025-01-02,TECH-001,,3200.0,800.0,2400.0,COMPLETED,,TECHNOLOGY
+2025-01-03,FIN-001,,890.0,200.0,690.0,COMPLETED,,FINANCIAL
+2025-08-24,CI-001,TechCorp Inc,2500,200,2300,COMPLETED,2 days,Claude Templates setup for development team
+2025-08-24,BA-001,StartupXYZ,5000,500,4500,COMPLETED,5 days,Complete business automation suite
+2025-08-24,CP-001,RetailMega,3500,300,3200,IN_PROGRESS,4 days,AI chat platform for customer support

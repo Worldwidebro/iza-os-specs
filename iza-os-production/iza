@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""
+IZA OS - Command Line Interface
+Executable version for immediate use
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add src directory to Python path
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+
+def main():
+    try:
+        from cli import main as cli_main
+        cli_main()
+    except ImportError as e:
+        print(f"❌ Could not import CLI: {e}")
+        print("🔧 Run: pip install -r requirements.txt")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ Error running IZA OS: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

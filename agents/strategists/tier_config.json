@@ -1,0 +1,7 @@
+{
+  "tier_name": "strategists",
+  "description": "Long-term planning agents for trend analysis and venture proposals",
+  "agent_count": 0,
+  "status": "ready",
+  "deployment_rules": "Deploy for long-term planning and analysis"
+}

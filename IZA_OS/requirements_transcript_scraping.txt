@@ -1,0 +1,22 @@
+# Requirements for IZA OS Transcript Scraping
+# Install with: pip install -r requirements_transcript_scraping.txt
+
+# Core scraping dependencies
+playwright==1.40.0
+yt-dlp==2023.12.30
+youtube-transcript-api==0.6.2
+
+# Data processing - using compatible versions for macOS ARM64
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Async support
+aiohttp>=3.8.0
+
+# Logging and utilities
+python-dateutil>=2.8.0
+
+# Optional: For enhanced analysis
+scikit-learn>=1.3.0  # For ML-based insight classification
+transformers>=4.30.0  # For advanced text analysis
+torch>=2.0.0  # PyTorch for transformers

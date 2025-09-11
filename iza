@@ -1,0 +1,527 @@
+#!/usr/bin/env python3
+"""
+IZA OS - Intelligent Zero-Administration Operating System
+Master Command Line Interface
+
+A self-organizing, self-improving AI executive ecosystem designed to:
+- Autonomously discover and solve civilization-scale problems
+- Generate and launch 478+ SaaS ventures
+- Orchestrate multi-agent intelligence workflows
+- Enable recursive self-improvement and learning
+- Manage memory, knowledge graphs, and cognitive architecture
+- Integrate with 120+ repositories and AI systems
+
+Author: IZA OS Development Team
+Version: 4.0 - Unified Recursive Intelligence System
+"""
+
+import os
+import sys
+import json
+import yaml
+import sqlite3
+import requests
+import subprocess
+import argparse
+import logging
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Any
+from pathlib import Path
+import asyncio
+import threading
+from dataclasses import dataclass
+import uuid
+
+# Add IZA OS to Python path
+IZA_OS_ROOT = Path(__file__).parent.absolute()
+sys.path.insert(0, str(IZA_OS_ROOT))
+
+# Core IZA OS imports
+try:
+    from IZA_OS.core import (
+        MemoryOrchestrator,
+        AgentCoordinator,
+        VentureFactory,
+        ProblemDiscoveryEngine,
+        LearningEngine,
+        EvolutionEngine,
+        RevenueOptimizer,
+        KnowledgeGraphManager,
+        MCPOrchestrator,
+        IntentTranslationLayer
+    )
+except ImportError as e:
+    print(f"Warning: Some IZA OS modules not available: {e}")
+
+# Configure logging
+LOG_DIR = IZA_OS_ROOT / "07_SYSTEM_LOGS"
+LOG_DIR.mkdir(exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_DIR / "iza_master.log"),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+logger = logging.getLogger("IZA_OS_Master")
+
+@dataclass
+class SystemHealth:
+    """System health status"""
+    memory_status: str
+    agent_count: int
+    active_ventures: int
+    problems_identified: int
+    revenue_monthly: float
+    learning_progress: float
+    system_uptime: float
+    last_evolution: datetime
+
+class IZAOSMaster:
+    """
+    Master IZA OS Controller
+    
+    Orchestrates all subsystems:
+    - Memory Core & Knowledge Graphs
+    - Multi-Agent Intelligence Networks
+    - Venture Factory & Revenue Systems
+    - Problem Discovery & Solution Generation
+    - Learning Loops & Skill Development
+    - Evolution Engine & Self-Improvement
+    - MCP Integration & Tool Orchestration
+    - Intent Translation & Natural Language Control
+    """
+    
+    def __init__(self):
+        self.root_path = IZA_OS_ROOT
+        self.config_path = self.root_path / "08_CONFIGURATION"
+        self.memory_path = self.root_path / "01_MEMORY_CORE"
+        self.logs_path = self.root_path / "07_SYSTEM_LOGS"
+        
+        # Initialize core systems
+        self.memory_orchestrator = None
+        self.agent_coordinator = None
+        self.venture_factory = None
+        self.problem_discovery = None
+        self.learning_engine = None
+        self.evolution_engine = None
+        self.revenue_optimizer = None
+        self.knowledge_graph = None
+        self.mcp_orchestrator = None
+        self.intent_translator = None
+        
+        # System state
+        self.system_started = False
+        self.startup_time = datetime.now()
+        
+        # Load configuration
+        self.load_configuration()
+        
+        logger.info("IZA OS Master Controller initialized")
+    
+    def load_configuration(self):
+        """Load system configuration"""
+        config_file = self.config_path / "master_config.json"
+        if config_file.exists():
+            with open(config_file, 'r') as f:
+                self.config = json.load(f)
+        else:
+            self.config = self.create_default_config()
+            self.save_configuration()
+    
+    def create_default_config(self):
+        """Create default system configuration"""
+        return {
+            "system": {
+                "name": "IZA_OS",
+                "version": "4.0",
+                "mode": "production",
+                "auto_evolution": True,
+                "max_agents": 50,
+                "memory_retention_days": 365
+            },
+            "memory": {
+                "vector_store": "chromadb",
+                "graph_store": "neo4j",
+                "cache_size_mb": 1024,
+                "backup_frequency": "daily"
+            },
+            "agents": {
+                "frameworks": ["crewai", "autogen", "seal"],
+                "max_concurrent": 10,
+                "timeout_minutes": 30
+            },
+            "ventures": {
+                "target_count": 478,
+                "monthly_revenue_target": 100000,
+                "auto_scaling": True
+            },
+            "learning": {
+                "daily_lessons": True,
+                "obsidian_sync": True,
+                "skill_assessment_frequency": "weekly"
+            },
+            "integrations": {
+                "warp_workflows": True,
+                "raycast_shortcuts": True,
+                "n8n_automation": True,
+                "midday_revenue": True
+            }
+        }
+    
+    def save_configuration(self):
+        """Save system configuration"""
+        self.config_path.mkdir(exist_ok=True)
+        config_file = self.config_path / "master_config.json"
+        with open(config_file, 'w') as f:
+            json.dump(self.config, f, indent=2)
+    
+    def initialize_systems(self):
+        """Initialize all core systems"""
+        logger.info("Initializing IZA OS core systems...")
+        
+        try:
+            # Initialize Memory Core
+            self.memory_orchestrator = MemoryOrchestrator(self.memory_path)
+            logger.info("✓ Memory Orchestrator initialized")
+            
+            # Initialize Knowledge Graph
+            self.knowledge_graph = KnowledgeGraphManager()
+            logger.info("✓ Knowledge Graph initialized")
+            
+            # Initialize Agent Coordinator
+            self.agent_coordinator = AgentCoordinator(self.config)
+            logger.info("✓ Agent Coordinator initialized")
+            
+            # Initialize Venture Factory
+            self.venture_factory = VentureFactory(self.memory_orchestrator)
+            logger.info("✓ Venture Factory initialized")
+            
+            # Initialize Problem Discovery
+            self.problem_discovery = ProblemDiscoveryEngine()
+            logger.info("✓ Problem Discovery Engine initialized")
+            
+            # Initialize Learning Engine
+            self.learning_engine = LearningEngine(self.memory_orchestrator)
+            logger.info("✓ Learning Engine initialized")
+            
+            # Initialize Evolution Engine
+            self.evolution_engine = EvolutionEngine(self)
+            logger.info("✓ Evolution Engine initialized")
+            
+            # Initialize Revenue Optimizer
+            self.revenue_optimizer = RevenueOptimizer()
+            logger.info("✓ Revenue Optimizer initialized")
+            
+            # Initialize MCP Orchestrator
+            self.mcp_orchestrator = MCPOrchestrator()
+            logger.info("✓ MCP Orchestrator initialized")
+            
+            # Initialize Intent Translator
+            self.intent_translator = IntentTranslationLayer(self)
+            logger.info("✓ Intent Translation Layer initialized")
+            
+            self.system_started = True
+            logger.info("🚀 IZA OS fully initialized and operational")
+            
+        except Exception as e:
+            logger.error(f"System initialization failed: {e}")
+            raise
+    
+    def get_system_health(self) -> SystemHealth:
+        """Get comprehensive system health status"""
+        try:
+            uptime = (datetime.now() - self.startup_time).total_seconds()
+            
+            return SystemHealth(
+                memory_status="operational" if self.memory_orchestrator else "offline",
+                agent_count=len(self.agent_coordinator.active_agents) if self.agent_coordinator else 0,
+                active_ventures=self.venture_factory.get_active_count() if self.venture_factory else 0,
+                problems_identified=len(self.problem_discovery.get_recent_problems()) if self.problem_discovery else 0,
+                revenue_monthly=self.revenue_optimizer.get_monthly_revenue() if self.revenue_optimizer else 0.0,
+                learning_progress=self.learning_engine.get_progress() if self.learning_engine else 0.0,
+                system_uptime=uptime,
+                last_evolution=datetime.now() - timedelta(hours=1)
+            )
+        except Exception as e:
+            logger.error(f"Error getting system health: {e}")
+            return SystemHealth("error", 0, 0, 0, 0.0, 0.0, 0.0, datetime.now())
+    
+    def execute_command(self, command: str, args: List[str]) -> Dict[str, Any]:
+        """Execute IZA OS command with recursive intelligence"""
+        try:
+            if not self.system_started and command != "start":
+                return {"error": "IZA OS not started. Run 'iza start' first."}
+            
+            # Route command through Intent Translation Layer
+            if self.intent_translator:
+                return self.intent_translator.process_command(command, args)
+            else:
+                return self._direct_command_execution(command, args)
+                
+        except Exception as e:
+            logger.error(f"Command execution failed: {e}")
+            return {"error": str(e)}
+    
+    def _direct_command_execution(self, command: str, args: List[str]) -> Dict[str, Any]:
+        """Direct command execution fallback"""
+        if command == "start":
+            return self._start_system()
+        elif command == "status":
+            return self._get_status()
+        elif command == "scan":
+            return self._scan_problems(args)
+        elif command == "create":
+            return self._create_venture(args)
+        elif command == "teach":
+            return self._start_learning()
+        elif command == "evolve":
+            return self._trigger_evolution()
+        elif command == "revenue":
+            return self._revenue_report()
+        elif command == "sync":
+            return self._sync_repositories()
+        elif command == "optimize":
+            return self._optimize_system()
+        elif command == "brief":
+            return self._daily_brief()
+        else:
+            return {"error": f"Unknown command: {command}"}
+    
+    def _start_system(self) -> Dict[str, Any]:
+        """Start the IZA OS system"""
+        if self.system_started:
+            return {"status": "already_running", "message": "IZA OS is already operational"}
+        
+        self.initialize_systems()
+        return {
+            "status": "started",
+            "message": "IZA OS started successfully",
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _get_status(self) -> Dict[str, Any]:
+        """Get comprehensive system status"""
+        health = self.get_system_health()
+        return {
+            "status": "operational" if self.system_started else "offline",
+            "health": {
+                "memory": health.memory_status,
+                "agents": health.agent_count,
+                "ventures": health.active_ventures,
+                "problems": health.problems_identified,
+                "revenue": f"${health.revenue_monthly:,.2f}/month",
+                "learning": f"{health.learning_progress:.1f}%",
+                "uptime": f"{health.system_uptime:.0f} seconds"
+            },
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _scan_problems(self, args: List[str]) -> Dict[str, Any]:
+        """Scan for problems and opportunities"""
+        if not self.problem_discovery:
+            return {"error": "Problem Discovery Engine not initialized"}
+        
+        scan_type = args[0] if args else "global"
+        results = self.problem_discovery.scan_problems(scan_type)
+        return {
+            "status": "completed",
+            "scan_type": scan_type,
+            "problems_found": len(results),
+            "top_opportunities": results[:5],
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _create_venture(self, args: List[str]) -> Dict[str, Any]:
+        """Create new venture"""
+        if not self.venture_factory:
+            return {"error": "Venture Factory not initialized"}
+        
+        if len(args) < 2:
+            return {"error": "Usage: iza create venture <name> [template]"}
+        
+        venture_name = args[1]
+        template = args[2] if len(args) > 2 else "saas"
+        
+        result = self.venture_factory.create_venture(venture_name, template)
+        return {
+            "status": "created",
+            "venture": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _start_learning(self) -> Dict[str, Any]:
+        """Start learning session"""
+        if not self.learning_engine:
+            return {"error": "Learning Engine not initialized"}
+        
+        session = self.learning_engine.start_daily_session()
+        return {
+            "status": "started",
+            "session": session,
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _trigger_evolution(self) -> Dict[str, Any]:
+        """Trigger system evolution"""
+        if not self.evolution_engine:
+            return {"error": "Evolution Engine not initialized"}
+        
+        results = self.evolution_engine.evolve_system()
+        return {
+            "status": "evolved",
+            "improvements": results,
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _revenue_report(self) -> Dict[str, Any]:
+        """Generate revenue report"""
+        if not self.revenue_optimizer:
+            return {"error": "Revenue Optimizer not initialized"}
+        
+        report = self.revenue_optimizer.generate_report()
+        return {
+            "status": "generated",
+            "report": report,
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _sync_repositories(self) -> Dict[str, Any]:
+        """Sync all repositories"""
+        sync_script = self.root_path / "sync_all.sh"
+        if sync_script.exists():
+            result = subprocess.run(["bash", str(sync_script)], capture_output=True, text=True)
+            return {
+                "status": "completed",
+                "output": result.stdout,
+                "errors": result.stderr,
+                "timestamp": datetime.now().isoformat()
+            }
+        else:
+            return {"error": "Sync script not found"}
+    
+    def _optimize_system(self) -> Dict[str, Any]:
+        """Optimize entire system"""
+        optimizations = []
+        
+        # Run all optimization engines
+        if self.evolution_engine:
+            evo_result = self.evolution_engine.optimize_performance()
+            optimizations.append({"type": "evolution", "result": evo_result})
+        
+        if self.revenue_optimizer:
+            rev_result = self.revenue_optimizer.optimize_revenue_streams()
+            optimizations.append({"type": "revenue", "result": rev_result})
+        
+        if self.memory_orchestrator:
+            mem_result = self.memory_orchestrator.optimize_memory()
+            optimizations.append({"type": "memory", "result": mem_result})
+        
+        return {
+            "status": "optimized",
+            "optimizations": optimizations,
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    def _daily_brief(self) -> Dict[str, Any]:
+        """Generate daily briefing"""
+        brief = {
+            "date": datetime.now().strftime("%Y-%m-%d"),
+            "system_health": self.get_system_health(),
+            "key_metrics": {},
+            "action_items": [],
+            "opportunities": []
+        }
+        
+        # Add system metrics
+        if self.venture_factory:
+            brief["key_metrics"]["ventures"] = self.venture_factory.get_daily_metrics()
+        
+        if self.problem_discovery:
+            brief["opportunities"] = self.problem_discovery.get_top_opportunities(5)
+        
+        if self.learning_engine:
+            brief["action_items"] = self.learning_engine.get_daily_actions()
+        
+        return {
+            "status": "generated",
+            "brief": brief,
+            "timestamp": datetime.now().isoformat()
+        }
+
+def create_parser():
+    """Create command line argument parser"""
+    parser = argparse.ArgumentParser(
+        description="IZA OS - Intelligent Zero-Administration Operating System",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Commands:
+  start                 Start IZA OS system
+  status               Show system status and health
+  scan [type]          Scan for problems and opportunities
+  create venture <name> [template]  Create new venture
+  teach                Start personalized learning session
+  evolve               Trigger system evolution
+  revenue              Generate revenue report
+  sync                 Sync all repositories
+  optimize             Optimize entire system
+  brief                Generate daily briefing
+
+Examples:
+  iza start
+  iza scan global
+  iza create venture "AI Analytics Platform" saas
+  iza teach advanced-ai
+  iza evolve --force
+  iza revenue --detailed
+        """
+    )
+    
+    parser.add_argument("command", help="Command to execute")
+    parser.add_argument("args", nargs="*", help="Command arguments")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
+    parser.add_argument("--config", help="Custom config file")
+    parser.add_argument("--force", action="store_true", help="Force execution")
+    parser.add_argument("--detailed", action="store_true", help="Detailed output")
+    
+    return parser
+
+def main():
+    """Main entry point"""
+    try:
+        parser = create_parser()
+        args = parser.parse_args()
+        
+        if args.verbose:
+            logging.getLogger().setLevel(logging.DEBUG)
+        
+        # Initialize IZA OS Master
+        iza_os = IZAOSMaster()
+        
+        # Execute command
+        result = iza_os.execute_command(args.command, args.args)
+        
+        # Output result
+        if result.get("error"):
+            print(f"❌ Error: {result['error']}")
+            sys.exit(1)
+        else:
+            print(f"✅ {result.get('status', 'completed').title()}")
+            if args.verbose or args.detailed:
+                print(json.dumps(result, indent=2, default=str))
+            elif result.get("message"):
+                print(result["message"])
+    
+    except KeyboardInterrupt:
+        print("\n⏹️  IZA OS interrupted by user")
+        sys.exit(130)
+    except Exception as e:
+        logger.error(f"Fatal error: {e}")
+        print(f"💥 Fatal error: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

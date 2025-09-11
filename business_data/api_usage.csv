@@ -1,0 +1,4 @@
+service,requests,cost,response_time,success_rate
+OpenAI GPT-4,15000,150.0,1.2,99.8
+Anthropic Claude,8500,85.0,0.8,99.9
+Krea.ai,3200,160.0,2.1,97.5

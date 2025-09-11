@@ -1,0 +1,7 @@
+{
+  "tier_name": "workers",
+  "description": "Single-task agents for specific operations",
+  "agent_count": 0,
+  "status": "ready",
+  "deployment_rules": "Deploy for specific single tasks"
+}
