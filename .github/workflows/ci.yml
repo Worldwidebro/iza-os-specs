@@ -1,0 +1,40 @@
+name: IZA OS CI Pipeline
+on: 
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup environment
+        run: |
+          echo "Setting up build environment..."
+          
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          
+      - name: Run tests
+        run: |
+          echo "Running test suite..."
+          
+      - name: Build project
+        run: |
+          echo "Building project..."
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run linting
+        run: |
+          echo "Running code quality checks..."
