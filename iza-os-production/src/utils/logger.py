@@ -4,9 +4,20 @@ Simplified logging configuration for development
 """
 
 import logging
+import logging.handlers
 import sys
+import os
+import json
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
+from functools import wraps
+from datetime import datetime
+from rich.logging import RichHandler
+from rich.console import Console
+import structlog
+from loguru import logger as loguru_logger
+
+console = Console()
 
 
 class IZAFormatter(logging.Formatter):
