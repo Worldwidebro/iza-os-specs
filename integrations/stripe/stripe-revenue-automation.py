@@ -81,5 +81,5 @@ class AIBossStripeEngine:
         pass
 
 if __name__ == "__main__":
-    automation = B12StripeAutomation()
-    print("🌐 B12 + Stripe Automation Engine Ready")
+    automation = AIBossStripeEngine()
+    print("🌐 Stripe Automation Engine Ready")
