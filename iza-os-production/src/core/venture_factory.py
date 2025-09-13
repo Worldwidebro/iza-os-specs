@@ -70,6 +70,13 @@ class VentureFactory:
             "templates_path": self.config.get("templates_path", "unknown")
         }
 
+    # Methods referenced by main.py (stubs)
+    async def shutdown(self) -> None:
+        self.initialized = False
+
+    async def get_active_count(self) -> int:
+        return len(self.ventures)
+
     # Idea database integration
     def _ideas_db_path(self) -> Path:
         # Place database at repository root

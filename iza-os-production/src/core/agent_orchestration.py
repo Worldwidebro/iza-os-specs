@@ -63,3 +63,7 @@ class AgentOrchestrator:
             "active_agents": len(self.get_active_agents()),
             "agent_types": list(set(agent["type"] for agent in self.agents))
         }
+
+    # Methods referenced by main.py (stubs)
+    async def get_agent_count(self) -> int:
+        return len(self.agents)

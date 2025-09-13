@@ -53,3 +53,17 @@ class MemoryCore:
             "storage_type": self.config.get("storage_type", "unknown"),
             "max_entries": self.config.get("max_entries", 0)
         }
+
+    # Methods referenced by main.py (stubs for now)
+    async def save_state(self) -> None:
+        """Persist in-memory state"""
+        if not self.initialized:
+            return
+        await asyncio.sleep(0)
+
+    async def get_usage_stats(self) -> Dict[str, Any]:
+        """Return usage statistics"""
+        return {
+            "approx_entries": 0,
+            "storage": self.config.get("storage_type", "unknown")
+        }
