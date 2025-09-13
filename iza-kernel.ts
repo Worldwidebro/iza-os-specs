@@ -1,5 +1,5 @@
 import { Redis } from 'ioredis';
-import { Directus } from '@directus/sdk';
+import { createDirectus } from '@directus/sdk';
 import { promises as fs } from 'fs';
 
 // Mock Graphiti for demonstration purposes
@@ -40,14 +40,14 @@ async function optimize(prompt: string): Promise<string> {
 
 class IZAKernel {
   private redis: Redis;
-  private directus: Directus<any>;
+  private directus: any;
   private graphiti: MockGraphiti;
   private mcp: MockFastMCP;
   private sourceOfTruth: string | undefined;
 
   constructor() {
     this.redis = new Redis();
-    this.directus = new Directus('http://localhost:8055'); // Assuming Directus runs on 8055
+    this.directus = createDirectus('http://localhost:8055'); // Assuming Directus runs on 8055
     this.graphiti = new MockGraphiti({ url: 'http://localhost:8001' }); // Assuming Graphiti runs on 8001
     this.mcp = new MockFastMCP();
   }
@@ -120,6 +120,12 @@ class IZAKernel {
     const optimized = await optimize(prompt);
     const grounded = await this.groundInMemory(optimized);
     return this.addExecutionGuardrails(grounded);
+  }
+
+  async routePrompt(prompt: string) {
+    console.log('Routing prompt...');
+    // Minimal router implementation for now
+    return { destination: 'default', prompt };
   }
 
   async groundInMemory(prompt: string) {

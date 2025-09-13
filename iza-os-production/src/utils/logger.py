@@ -4,9 +4,14 @@ Simplified logging configuration for development
 """
 
 import logging
+import logging.handlers
 import sys
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
+from functools import wraps
+from datetime import datetime
+import json
+import os
 
 
 class IZAFormatter(logging.Formatter):
@@ -122,16 +127,26 @@ def setup_logger(
     
     # Console handler with rich formatting
     if rich_logging and not os.getenv('NO_RICH_LOGGING'):
-        console_handler = RichHandler(
-            console=console,
-            show_time=True,
-            show_path=True,
-            markup=True,
-            rich_tracebacks=True,
-            tracebacks_show_locals=True
-        )
-        console_handler.setLevel(getattr(logging, level.upper()))
-        logger.addHandler(console_handler)
+        try:
+            from rich.logging import RichHandler
+            from rich.console import Console
+            console = Console()
+            console_handler = RichHandler(
+                console=console,
+                show_time=True,
+                show_path=True,
+                markup=True,
+                rich_tracebacks=True,
+                tracebacks_show_locals=True
+            )
+            console_handler.setLevel(getattr(logging, level.upper()))
+            logger.addHandler(console_handler)
+        except Exception:
+            # Fallback to standard console handler if rich is not available
+            console_handler = logging.StreamHandler(sys.stdout)
+            console_handler.setFormatter(IZAFormatter(format_type))
+            console_handler.setLevel(getattr(logging, level.upper()))
+            logger.addHandler(console_handler)
     else:
         # Standard console handler
         console_handler = logging.StreamHandler(sys.stdout)
@@ -189,6 +204,11 @@ def setup_structlog():
     """
     Configure structlog for structured logging across IZA OS
     """
+    
+    try:
+        import structlog
+    except Exception:
+        return
     
     timestamper = structlog.processors.TimeStamper(fmt="ISO")
     
@@ -435,8 +455,16 @@ def setup_loguru():
     Configure loguru logger for enhanced logging features
     """
     
+    try:
+        from loguru import logger as loguru_logger
+    except Exception:
+        return
+    
     # Remove default handler
-    loguru_logger.remove()
+    try:
+        loguru_logger.remove()
+    except Exception:
+        pass
     
     # Add custom handler with rotation and retention
     loguru_logger.add(

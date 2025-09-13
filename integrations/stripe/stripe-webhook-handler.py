@@ -16,7 +16,8 @@ webhook_secret = os.getenv('STRIPE_WEBHOOK_SECRET')
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
- @app.route('/webhook', methods=['POST'])
+
+@app.route('/webhook', methods=['POST'])
 def stripe_webhook():
     payload = request.get_data()
     sig_header = request.headers.get('Stripe-Signature')
