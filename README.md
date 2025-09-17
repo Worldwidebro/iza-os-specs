@@ -29,3 +29,22 @@ Welcome to the central source of truth for Iza OS. This "book" is a living proje
 1.  **Read the Documentation:** Start with the chapters in the `/docs` directory.
 2.  **Explore the Code:** The `/src` directory contains the scaffolded code for the new architecture.
 3.  **Contribute:** Follow the roadmap in Chapter 1 to begin implementing the next features.
+
+## Interactive UI (Streamlit)
+
+A minimal UI is available to view status, submit tasks, and manage the `BUSINESS_IDEAS.json` database.
+
+Run it:
+
+```bash
+python3 -m pip install --user streamlit httpx --break-system-packages
+~/.local/bin/streamlit run /workspace/ui/iza_ui.py --server.headless=true --server.port=8501 --server.address=0.0.0.0
+```
+
+Then open `http://localhost:8501`.
+
+Features:
+- Status: provider health, memory systems summary, agent orchestrator task overview
+- Submit Task: create and optionally execute analyze/clone/integrate tasks on known repos
+- Business Ideas: add, edit, delete, and export entries in `business_data/BUSINESS_IDEAS.json`
+
