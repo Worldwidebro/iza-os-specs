@@ -393,6 +393,38 @@ async def list_ventures():
     console.print(f"\n📊 [bold]Portfolio Summary:[/bold] 15/478 slots used | $4,247 total MRR | +31% growth")
 
 
+@venture.command('scaffold-pending')
+@click.option('--title', default=None, help='Specific idea title to scaffold (optional)')
+async def scaffold_pending(title):
+    """🧱 Scaffold a venture from the idea database (first pending by default)"""
+    if not cli_context.initialized:
+        await cli_context.initialize()
+
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        console=console,
+    ) as progress:
+        task = progress.add_task("🧱 Scaffolding venture from pending idea...", total=None)
+        venture = await cli_context.venture_factory.scaffold_pending_idea(title=title)
+        progress.update(task, completed=100)
+
+    if venture is None:
+        console.print("ℹ️  No pending ideas available to scaffold", style="yellow")
+        return
+
+    panel = Panel.fit(
+        f"""[bold green]✅ Venture Scaffolded![/bold green]
+
+[bold]Name:[/bold] {venture.get('name')}
+[bold]Status:[/bold] {venture.get('status')}
+[bold]Path:[/bold] {venture.get('path')}""",
+        title="Venture Scaffolding Result",
+        border_style="green"
+    )
+    console.print(panel)
+
+
 @cli.command()
 @click.option('--focus', help='Learning focus area (python, business, ai)')
 @click.option('--time', default=45, help='Session length in minutes')
