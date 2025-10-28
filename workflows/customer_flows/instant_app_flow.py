@@ -862,7 +862,7 @@ jobs:
     - name: Build project
       run: npm run build
     - name: Deploy
-      run: echo "Deployment configured for {app_design.get('deployment_target', 'Vercel')}\"""
+      run: echo "Deployment configured for {app_design.get('deployment_target', 'Vercel')}"""
         }
     
     def _calculate_total_lines(self, code_structure: Dict[str, Any]) -> int:

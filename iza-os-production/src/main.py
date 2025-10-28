@@ -253,8 +253,6 @@ async def status():
 @app.post("/start")
 async def start_system():
     """Start IZA OS system"""
-    global iza_system
-    
     if not iza_system:
         return JSONResponse(
             status_code=503,
@@ -277,8 +275,6 @@ async def start_system():
 @app.post("/stop")
 async def stop_system():
     """Stop IZA OS system"""
-    global iza_system
-    
     if not iza_system:
         return JSONResponse(
             status_code=503,
